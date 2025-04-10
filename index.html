@@ -58,9 +58,9 @@
         }
 
         .mapboxgl-popup-content {
-            font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+            font: 300 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
             padding: 0;
-            width: 250px;
+            width: 150px;
         }
 
         .mapboxgl-popup-content-wrapper {
@@ -68,7 +68,7 @@
         }
 
         .mapboxgl-popup-content h3 {
-            background: rgb(61, 59, 59);
+            background: #68cc68;
             text-align: center;
             color: #fff;
             margin: 0;
@@ -110,7 +110,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 1;
             font-family: sans-serif;
-            max-width: 300px;
+            max-width: 800px;
         }
 
         #title {
@@ -149,11 +149,11 @@
             googleSheetDownloadUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQfuTJixPTFc-WjOAQ7BsP_37Ra8SX1-QU4jGUP309yneLQGbGwJyEOptVJWtG11USLqE2fwRiDditB/pub?gid=0&single=true&output=csv',
             mapboxAccessToken: 'pk.eyJ1IjoiYWxhbmRyZWE5OCIsImEiOiJjbTkxejExNXIwNnZ3Mm5tdjZtNzBjbWt2In0.EuYSzdMKHrh1jKmD2fWyXA',
             markerOptions: {
-                color: '#4682b4',
+                color: '#5ea1ff',
                 scale: 0.8
             },
             title: '🌳 Parks & Playgrounds Alanis has been to in NYC 🌳',
-            description: 'Sheetmapper is an html and javascript template to help you quickly create an interactive map with point data sourced from a google sheet.'
+            description: 'Alanis wants to catalog all of the parks that she remembers going to. <h4> <b>Click on a marker for her rating out of 5.</b> </h4>'
         }
 
         async function convertCsvToGeojson(csvData) {
@@ -207,7 +207,7 @@
                         // set popup content
                         // You can adjust the values of the popup to match the column names of your google sheet.
                         // For example: d.properties.Name is retrieving information from the field Name in the google sheet.
-                        var popupContent = `<h3>` + d.properties.Name + `</h3>` + `<h4>` + `<b>` + `Address: ` + `</b>` + d.properties.Address + `</h4>` + `<h4>` + `<b>` + `Phone: ` + `</b>` + d.properties.Phone + `</h4>`;
+                        var popupContent = `<h3>` + d.properties.Name + `</h3>` + `<h4>` + `<b>` + `Rating: ` + `</b>` + d.properties.Rating + `</h4>`;
 
                         const marker = new mapboxgl.Marker(markerOptions)
                             .setLngLat(d.geometry.coordinates)
